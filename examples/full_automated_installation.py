@@ -8,7 +8,7 @@ from archinstall import models
 
 # we're creating a new ext4 filesystem installation
 fs_type = disk.FilesystemType('ext4')
-device_path = Path('/dev/sda')
+device_path = Path('/dev/nvme01n')
 
 # get the physical disk device
 device = disk.device_handler.get_device(device_path)
@@ -36,7 +36,7 @@ root_partition = disk.PartitionModification(
 	status=disk.ModificationStatus.Create,
 	type=disk.PartitionType.Primary,
 	start=disk.Size(513, disk.Unit.MiB, device.device_info.sector_size),
-	length=disk.Size(20, disk.Unit.GiB, device.device_info.sector_size),
+	length=disk.Size(35, disk.Unit.GiB, device.device_info.sector_size),
 	mountpoint=None,
 	fs_type=fs_type,
 	mount_options=[],
