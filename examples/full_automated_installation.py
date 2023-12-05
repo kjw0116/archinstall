@@ -2,7 +2,7 @@ from pathlib import Path
 
 from archinstall import Installer
 from archinstall import profile
-from archinstall.default_profiles.minimal import MinimalProfile
+from archinstall.default_profiles.desktop import DesktopProfile
 from archinstall import disk
 from archinstall import models
 
@@ -92,7 +92,7 @@ with Installer(
 
 # Optionally, install a profile of choice.
 # In this case, we install a minimal profile that is empty
-profile_config = profile.ProfileConfiguration(MinimalProfile())
+profile_config = profile.ProfileConfiguration(DesktopProfile())
 profile.profile_handler.install_profile_config(installation, profile_config)
 
 user = models.User('archinstall', 'password', True)
